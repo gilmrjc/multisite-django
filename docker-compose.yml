@@ -1,0 +1,28 @@
+app1:
+  restart: always
+  build: example-apps/app1
+
+nginx_app1:
+  restart: always
+  build: nginx/app1
+  links:
+    - app1:app1
+
+app2:
+  restart: always
+  build: example-apps/app2
+
+nginx_app2:
+  restart: always
+  build: nginx/app2
+  links:
+    - app2:app2
+
+nginx:
+  restart: always
+  build: nginx/master
+  ports:
+    - "80:80"
+  links:
+    - nginx_app1:nginx_app1
+    - nginx_app2:nginx_app2
