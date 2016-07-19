@@ -8,4 +8,6 @@ RUN pip install django~="$DJANGO_VERSION"
 
 ONBUILD COPY . /usr/src/app
 
-ENTRYPOINT ["/usr/src/app/manage.py", "runserver"]
+EXPOSE 8000
+
+ENTRYPOINT ["/usr/src/app/manage.py", "runserver", "0.0.0.0:8000"]
