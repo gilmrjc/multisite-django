@@ -1,6 +1,7 @@
 app1:
   restart: always
   build: example-apps/app1
+  # image: gilmrjc/multisite-django:example-app-1
 
 nginx_app1:
   restart: always
@@ -10,7 +11,8 @@ nginx_app1:
 
 app2:
   restart: always
-  build: example-apps/app2
+  #build: example-apps/app2
+  image: gilmrjc/multisite-django:example-app-2
 
 nginx_app2:
   restart: always
